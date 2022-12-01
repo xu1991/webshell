@@ -2,7 +2,10 @@ FROM ubuntu
 MAINTAINER Bitworks Software info@bitworks.software
 
 EXPOSE 80
-
+RUN apt-get update \
+  && apt-get install -y apt-utils locales locales-all \
+  && apt-get install -y wget curl tzdata openssh-server passwd \
+  && locale-gen en_US.UTF-8 \
 ENV SSH_PORT 22
 ENV USERNAME root
 ENV DEFAULT_IP 0.0.0.0
