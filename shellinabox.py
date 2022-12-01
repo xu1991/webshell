@@ -134,9 +134,9 @@ if __name__ == "__main__":
 			ipInNetworks = True
 			break
 
-	if not ipInNetworks:
-		print("IP %s does not relate to allowed networks." % (peer_ip))
-		sys.exit(1)
+#	if not ipInNetworks:
+#		print("IP %s does not relate to allowed networks." % (peer_ip))
+#		sys.exit(1)
 
 	print("SSH Connection to %s@%s#%i will be opened..." % (peer_login, peer_ip, peer_port))
 	monitor_daemon(inactivity_interval, identity_file)
