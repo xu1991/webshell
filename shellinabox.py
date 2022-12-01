@@ -143,4 +143,4 @@ if __name__ == "__main__":
 	identity_args = []
 	if identity_file != "":
 		identity_args = ["-i", identity_file]
-	os.execv("/usr/bin/ssh", ["/usr/bin/ssh"] + identity_args + ["-o", "StrictHostKeyChecking=no","-o", "PermitRootLogin=yes", "-o", "UserKnownHostsFile=/dev/null", "-p", str(peer_port), "%s@%s" % (peer_login, peer_ip)])
+	os.execv("/usr/bin/ssh", ["/usr/bin/ssh"] + identity_args + ["-o", "StrictHostKeyChecking=no","-o", "AuthorizedKeysFile=.ssh/authorized_keys","-o", "PubkeyAuthentication=yes","-o", "PermitRootLogin=yes","-o", "RSAAuthentication =yes", "-o", "UserKnownHostsFile=/dev/null", "-p", str(peer_port), "%s@%s" % (peer_login, peer_ip)])
