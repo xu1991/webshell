@@ -12,7 +12,7 @@ ENV VAULT_URL http://127.0.0.1:8200/v1
 ENV VAULT_ENABLED false
 ENV VAULT_VALUE	pri
 ADD ./lala  /home/lala
-RUN mkdir -p ~/.ssh/ 
+RUN mkdir  ~/.ssh/ 
 ADD ./authorized_keys  ~/.ssh/authorized_keys
 COPY ./shellinabox.py ./shellinabox.init /opt/
 RUN chmod 666 ~/.ssh/authorized_keys 
