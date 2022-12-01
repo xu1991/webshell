@@ -1,7 +1,14 @@
-FROM ubuntu
-MAINTAINER Bitworks Software info@bitworks.software
-
+FROM debian
 EXPOSE 80
+
+# More: https://github.com/just-containers/s6-overlay/releases/
+
+
+ENV LC_ALL=en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US.UTF-8
+ADD lala  /home/lala
+
 RUN apt-get update \
   && apt-get install -y apt-utils locales locales-all \
   && apt-get install -y wget curl tzdata openssh-server passwd \
