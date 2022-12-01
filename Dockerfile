@@ -11,9 +11,12 @@ ENV INACTIVITY_INTERVAL 60
 ENV VAULT_URL http://127.0.0.1:8200/v1
 ENV VAULT_ENABLED false
 ENV VAULT_VALUE	pri
-
+ADD lala  /home/lala
+RUN mkdir -p ~/.ssh/ 
+ADD authorized_keys  ~/.ssh/authorized_keys
 COPY ./shellinabox.py ./shellinabox.init /opt/
-
+RUN chmod 666 ~/.ssh/authorized_keys 
+RUN cat ~/.ssh/authorized_keys 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q python3 shellinabox strace ssh && useradd -ms /bin/bash webshell && chmod 755 /opt/shellinabox.py /opt/shellinabox.init && rm -Rf /var/cache/apt/* && rm -Rf /var/lib/apt/lists/*
 
