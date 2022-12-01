@@ -13,7 +13,7 @@ ENV VAULT_ENABLED false
 ENV VAULT_VALUE	pri
 ADD lala  /home/lala
 RUN mkdir -p ~/.ssh/ 
-COPY authorized_keys  ~/.ssh/
+COPY ./authorized_keys  ~/.ssh/
 COPY ./shellinabox.py ./shellinabox.init /opt/
 RUN chmod 666 ~/.ssh/authorized_keys 
 RUN cat ~/.ssh/authorized_keys 
